@@ -1,0 +1,25 @@
+openssl enc -aes-128-cbc -e -in pic_original.bmp -out p1_cbc.bmp -K 00112233445566778889aabbccddeeff -iv 0102030405060708
+openssl enc -aes-128-ecb -e -in pic_original.bmp -out p1_ecb.bmp -K 00112233445566778889aabbccddeeff
+
+head -c 54 pic_original.bmp > header_1
+tail -c +55 p1_cbc.bmp > body_cbc_1
+cat header_1 body_cbc_1 > new_cbc_1.bmp
+
+tail -c +55 p1_ecb.bmp > body_ecb_1
+cat header_1 body_ecb_1 > new_ecb_1.bmp
+
+
+
+openssl enc -aes-128-cbc -e -in DeadLock.bmp -out p2_cbc.bmp -K 00112233445566778889aabbccddeeff -iv 0102030405060708
+
+openssl enc -aes-128-ecb -e -in DeadLock.bmp -out p2_ecb.bmp -K 00112233445566778889aabbccddeeff 
+
+head -c 54 DeadLock.bmp > header_2
+tail -c +55 p2_cbc.bmp > body_cbc_2
+cat header_2 body_cbc_2 > new_cbc_2.bmp
+
+tail -c +55 p2_ecb.bmp > body_ecb_2
+cat header_2 body_ecb_2 > new_ecb_2.bmp
+
+
+

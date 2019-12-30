@@ -1,0 +1,2 @@
+need to understand before starting
+1. TCP Handshake - from netattack powerpoint file

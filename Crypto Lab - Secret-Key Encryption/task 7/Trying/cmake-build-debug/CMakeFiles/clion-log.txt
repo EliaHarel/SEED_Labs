@@ -1,0 +1,4 @@
+/media/inf3rnos/00315ad2-d9f7-4d3a-a732-620469462be2/Programs/clion-2019.2.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/inf3rnos/Documents/Programming/C/Trying
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/inf3rnos/Documents/Programming/C/Trying/cmake-build-debug

@@ -1,0 +1,42 @@
+CBC - V
+AES
+ECB
+CFB
+OFB
+
+AesF.txt
+CfbF.txt
+EcbF.txt
+OfbF.txt
+
+-aes-128
+-aes-128-cfb
+-aes-128-ecb
+-aes-128-ofb
+
+openssl enc -aes128     -e -in AES/AesF.txt -out AES/aes_enc.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-cfb -e -in CFB/CfbF.txt -out CFB/cfb_enc.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-ecb -e -in ECB/EcbF.txt -out ECB/ecb_enc.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-ofb -e -in OFB/OfbF.txt -out OFB/ofb_enc.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708
+
+
+do the corruption and have these files
+
+AES/AES/aes_enc_C.txt
+CFB/CFB/cfb_enc_C.txt
+ECB/ECB/ecb_enc_C.txt
+OFB/OFB/ofb_enc_C.txt
+
+
+openssl enc -aes128      -d -in AES/aes_enc_C.txt -out AES/aes_dec_C.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-cfb -d -in CFB/cfb_enc_C.txt -out CFB/cfb_dec_C.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-ecb -d -in ECB/ecb_enc_C.txt -out ECB/ecb_dec_C.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-ofb -d -in OFB/ofb_enc_C.txt -out OFB/ofb_dec_C.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708
+
+
+mkdir to_copy
+
+mv -t to_copy ./{AES,CFB,ECB,OFB}/*.txt
+
+mkdir dec
+mv -t dec ./*/???_dec_C.txt

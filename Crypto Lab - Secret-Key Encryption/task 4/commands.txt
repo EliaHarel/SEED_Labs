@@ -1,0 +1,37 @@
+sudo chmod -R ugo+rwx  ~/CMPSC443/
+
+openssl enc -aes-128-cbc -e -in letter.txt -out cbc.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-cfb -e -in letter.txt -out cfb.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-ofb -e -in letter.txt -out ofb.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-256-ecb -e -in letter.txt -out ofb.txt -K 00112233445566778889aabbccddeeff
+
+
+
+echo -n "12345" > f1.txt
+openssl enc -aes-128-cbc -e -in f1.txt -out f1_d.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+
+echo -n "1234567890" > f2.txt
+openssl enc -aes-128-cbc -e -in f2.txt -out f2_d.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+
+echo -n "1234567890123456" > f3.txt
+openssl enc -aes-128-cbc -e -in f3.txt -out f3_d.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+
+
+
+openssl enc -aes-128-cbc -d
+
+openssl enc -aes-128-cbc -d -nopad -in f1_d.txt -out f1_dec.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-cbc -d -nopad -in f2_d.txt -out f2_dec.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-cbc -d -nopad -in f3_d.txt -out f3_dec.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+
+
+
+ENC
+openssl enc -aes-128-cbc -e -in file.txt -out cbc_enc.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-cfb -e -in file.txt -out cfb_enc.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-128-ofb -e -in file.txt -out ofb_enc.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708 
+openssl enc -aes-256-ecb -e -in file.txt -out ofb_enc.txt -K 00112233445566778889aabbccddeeff
+
+
+DEC
+openssl enc -aes-128-cbc -d -in file_enc_corrupted.txt -out file_cur_dec.txt -K 00112233445566778889aabbccddeeff -iv 0102030405060708

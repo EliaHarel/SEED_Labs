@@ -1,0 +1,11 @@
+
+enc 1
+openssl enc -aes-256-cbc -e -in letter.txt -out cipher_aes_256_cbc.bin -K 00112233445566778889aabbccddeeff -iv 0102030405060708
+
+enc 2
+openssl enc -aes-192-cfb -e -in letter.txt -out cipher_aes_192_cfb.bin -K 00112233445566778889aabbccddeeff -iv 0102030405060708
+
+enc 3
+openssl enc -aes-128-ofb -e -in letter.txt -out cipher_aes_128_ofb.bin -K 00112233445566778889aabbccddeeff -iv 0102030405060708
+
+

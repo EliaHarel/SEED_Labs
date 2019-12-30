@@ -1,0 +1,76 @@
+task 1
+md5collgen -p fll.txt -o oout1.bin oout2.bin
+
+
+diff oout1.bin oout2.bin
+md5sum oout1.bin
+md5sum oout2.bin
+
+
+head -c 64 /dev/urandom > fll.txt
+
+md5collgen -p fll.txt -o oout1.bin oout2.bin
+
+diff oout1.bin oout2.bin
+md5sum oout1.bin
+md5sum oout2.bin
+
+
+task 2
+
+md5collgen -p fl1.txt -o out1.bin out2.bin
+
+md5sum out1.bin
+md5sum out2.bin
+
+
+task 3
+
+head -c 4160 a.out > prefix ; tail -c +4289 a.out > suffix
+head -c 4288 a.out > temp
+tail -c 128 temp > P
+
+
+md5collgen -p P -o P1 P2
+
+
+task 4
+
+head -c 4160 a.out > prefix
+head -c 4288 a.out > temp
+tail -c 128 temp > P
+
+tail -c +4289 a.out > temp_suffix
+head -c 256 temp_suffix > mid
+
+
+head -c +257 temp_suffix > temp_Q
+head -c 128 temp_Q > Q
+tail -c +385 temp_suffix > suffix
+
+md5collgen -p P -o P1 P2
+
+cat prefix P1 mid P1 suffix > good.out
+cat prefix P1 mid P2 suffix > bad.out
+
+-------------------
+
+echo 1234567890 > a.out
+
+head -c 2 a.out > prefix
+head -c 4 a.out > temp
+tail -c 2 temp > P
+
+tail -c +5 a.out > temp_suffix
+head -c 2 temp_suffix > mid
+
+tail -c +3 temp_suffix > temp_Q
+head -c 2 temp_Q > Q
+tail -c +5 temp_suffix > suffix
+
+
+
+
+
+
+

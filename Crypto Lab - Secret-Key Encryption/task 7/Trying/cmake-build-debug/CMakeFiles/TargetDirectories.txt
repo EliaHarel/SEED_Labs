@@ -1,0 +1,3 @@
+/home/inf3rnos/Documents/Programming/C/Trying/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/inf3rnos/Documents/Programming/C/Trying/cmake-build-debug/CMakeFiles/Trying.dir
+/home/inf3rnos/Documents/Programming/C/Trying/cmake-build-debug/CMakeFiles/edit_cache.dir

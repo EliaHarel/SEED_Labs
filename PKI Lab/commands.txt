@@ -1,0 +1,37 @@
+sudo vim /etc/hosts
+sudo vim /etc/apache2/sites-available/default-ssl.conf
+sudo vim /etc/apache2/
+
+// Test the Apache configuration file for errors
+sudo apachectl configtest
+
+// Enable the SSL module
+sudo a2enmod ssl
+
+// Enable the site we have just edited
+sudo a2ensite default-ssl
+
+// Restart Apache
+sudo service apache2 restart
+
+
+
+SEEDPKILab2018.com
+facebook.com
+
+
+openssl ca -in server.csr -out server.crt -cert ca.crt -keyfile ca.key -config openssl.cnf
+
+
+cp server.key server.pem ; cat server.crt >> server.pem
+
+
+
+<VirtualHost *:443>
+	ServerName facebook.com
+	DocumentRoot /var/www/html
+	DirectoryIndex index.html
+	SSLEngine On
+	SSLCertificateFile /mnt/hgfs/Shared_Penn/Lab_2/task6/server.pem
+	SSLCertificateKeyFile /mnt/hgfs/Shared_Penn/Lab_2/task6/server.key
+</VirtualHost>

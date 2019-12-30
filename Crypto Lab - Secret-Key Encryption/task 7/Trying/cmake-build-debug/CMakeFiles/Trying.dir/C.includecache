@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/inf3rnos/Documents/Programming/C/Trying/main.c
+openssl/evp.h
+-
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+

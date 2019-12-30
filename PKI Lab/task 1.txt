@@ -1,0 +1,26 @@
+task 1
+cd /mnt/hgfs/Shared_Penn/Lab 2/task 1
+cp /usr/lib/ssl/openssl.cnf ./
+
+mkdir dir 
+cd dir
+touch certs cacert.pem serial
+mkdir crl_dir newcerts
+echo "1000" > index.txt
+cd ..
+
+
+task 2
+
+//Step 1: Generate public/private key pair
+openssl genrsa -aes128 -out server.key 1024
+
+//Generate a Certificate Signing Request (CSR)
+openssl req -new -key server.key -out server.csr -config openssl.cnf
+
+//Generating Certificates
+openssl ca -in server.csr -out server.crt -cert ca.crt -keyfile ca.key -config openssl.cnf
+
+
+
+cp server.key server.pem ; cat server.crt >> server.pem ; openssl s_server -cert server.pem -www
